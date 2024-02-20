@@ -1,0 +1,40 @@
+ CREATE DATABASE oncf
+ USE oncf
+ CREATE TABLE billets (
+    idBillet INT PRIMARY KEY AUTO_INCREMENT,
+    stDepart VARCHAR(255),
+    stArrivee VARCHAR(255),
+    heureDepart TIME,
+    heureArrivee TIME,
+    Classe VARCHAR(50),
+    prix DECIMAL(10, 2)
+);
+ CREATE TABLE Trajets (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    stDepart VARCHAR(255) NOT NULL,
+    stArrivee VARCHAR(255) NOT NULL,
+    heureDepart TIME NOT NULL,
+    heureArrivee TIME NOT NULL,
+    tarif DECIMAL(10, 2) NOT NULL
+);
+ CREATE TABLE Voyageurs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(255) NOT NULL,
+    prenom VARCHAR(255) NOT NULL,
+    email VARCHAR(255),
+    carteReductionId INT,
+    FOREIGN KEY (carteReductionId) REFERENCES CartesReduction(id)
+);
+ CREATE TABLE CartesReduction (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    type VARCHAR(100) NOT NULL,
+    tauxReduction DECIMAL(5, 2) NOT NULL
+);
+CREATE TABLE Voyageurs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(255) NOT NULL,
+    prenom VARCHAR(255) NOT NULL,
+    email VARCHAR(255),
+    carteReductionId INT
+
+);
